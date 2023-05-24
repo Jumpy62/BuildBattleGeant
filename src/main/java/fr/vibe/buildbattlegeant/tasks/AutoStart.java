@@ -64,6 +64,8 @@ public class AutoStart extends BukkitRunnable {
 
                 worldManager.loadWorld(p.getName());
 
+                p.sendTitle("§k§l| §eC'est parti ! §f§k§l|", "§9§nBon courage");
+
                 p.getInventory().setItem(4, (new ItemStack(Material.DIAMOND_AXE, 1)));
                 p.updateInventory();
             }

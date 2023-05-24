@@ -52,7 +52,6 @@ public class BBGPlayerListeners implements Listener {
     @EventHandler
     public void onQuit(PlayerQuitEvent event){
         Player p = event.getPlayer();
-        main.getPlayers().remove(p);
 
         if (main.isState(BBGState.STARTING) && main.getPlayers().size() < 2){
             main.setState(BBGState.WAITING);
