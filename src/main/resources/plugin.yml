@@ -1,0 +1,10 @@
+name: BuildBattleGeant
+version: '${project.version}'
+main: fr.vibe.buildbattlegeant.Main
+api-version: 1.19
+authors: [Vibe]
+description: BuildBattle event plugin
+commands:
+  worldtp:
+    description: Téléporte à la map de la team
+    usage: /<command>

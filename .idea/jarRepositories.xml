@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jitpack.io" />
+      <option name="name" value="jitpack.io" />
+      <option name="url" value="https://jitpack.io" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="sonatype" />
+      <option name="name" value="sonatype" />
+      <option name="url" value="https://oss.sonatype.org/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="OnARandomBox" />
+      <option name="name" value="OnARandomBox" />
+      <option name="url" value="https://repo.onarandombox.com/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="MultiverseCore" />
+      <option name="name" value="MultiverseCore" />
+      <option name="url" value="https://github.com/Multiverse/Multiverse-Core/tree/main/src/main/java/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="minebench-repo" />
+      <option name="name" value="minebench-repo" />
+      <option name="url" value="https://repo.minebench.de/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spigotmc-repo" />
+      <option name="name" value="spigotmc-repo" />
+      <option name="url" value="https://hub.spigotmc.org/nexus/content/repositories/snapshots/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="idConverter" />
+      <option name="name" value="idConverter" />
+      <option name="url" value="https://repo.phoenix616.dev/de/themoep/idconverter/1.2-SNAPSHOT/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="spigot-vault-api" />
+      <option name="name" value="spigot-vault-api" />
+      <option name="url" value="https://ci.ender.zone/plugin/repository/everything/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="idconverter" />
+      <option name="name" value="idconverter" />
+      <option name="url" value="https://repo.phoenix616.dev/de/themoep/idconverter/application/1.2-SNAPSHOT/" />
+    </remote-repository>
+  </component>
+</project>
