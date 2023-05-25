@@ -5,6 +5,6 @@ api-version: 1.19
 authors: [Vibe]
 description: BuildBattle event plugin
 commands:
-  worldtp:
-    description: Téléporte à la map de la team
+  regles:
+    description: Règles du Build Battle Géant
     usage: /<command>

@@ -66,8 +66,7 @@ public class AutoStart extends BukkitRunnable {
 
                 p.sendTitle("§k§l| §eC'est parti ! §f§k§l|", "§9§nBon courage");
 
-                p.getInventory().setItem(4, (new ItemStack(Material.DIAMOND_AXE, 1)));
-                p.updateInventory();
+                p.playNote(p.getLocation(), Instrument.IRON_XYLOPHONE, Note.natural(1, Note.Tone.A));
             }
 
             GameCycle cycle = new GameCycle(main);

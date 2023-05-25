@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class WorldTPCommand implements CommandExecutor {
+public class RulesCommand implements CommandExecutor {
 
     private Main main;
 
@@ -17,10 +17,10 @@ public class WorldTPCommand implements CommandExecutor {
 
             Player p = (Player) sender;
 
-            /*
-            if (main.getTablo().contains(p)){
-                p.teleport(main.getTablo().get(p) )
-            }*/
+            p.sendMessage("=====[ Build Battle Geant Regles ]=====");
+            p.sendMessage("- World Edit Autorisé");
+            p.sendMessage("- ...");
+            p.sendMessage("=======================================");
 
         }
 
