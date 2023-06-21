@@ -2,17 +2,10 @@ package fr.vibe.buildbattlegeant.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.HumanEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.Arrays;
 
 public class TeamGuiListener implements Listener {
 
@@ -28,6 +21,9 @@ public class TeamGuiListener implements Listener {
 
     public void inizializeItems(){
         inv.addItem(createGuiItem(Material.RED_WOOL, "§cTeam Rouge"));
+        inv.addItem(createGuiItem(Material.BLUE_WOOL, "§9Team Bleue"));
+        inv.addItem(createGuiItem(Material.YELLOW_WOOL, "§eTeam Jaune"));
+        inv.addItem(createGuiItem(Material.LIME_WOOL, "§aTeam Verte"));
     }
 
     protected ItemStack createGuiItem(final Material material, final String name){
@@ -41,32 +37,6 @@ public class TeamGuiListener implements Listener {
 
         return item;
 
-    }
-
-    public void openInventory(final HumanEntity ent){
-        ent.openInventory(inv);
-    }
-
-    @EventHandler
-    public void onInventoryClick(final InventoryClickEvent e){
-        if (!e.getInventory().equals(inv)) return;
-
-        e.setCancelled(true);
-
-        final ItemStack clickItem = e.getCurrentItem();
-
-        if (clickItem == null || clickItem.getType().isAir()) return;
-
-        final Player p = (Player) e.getWhoClicked();
-
-        p.sendMessage("Vous êtes dans une team");
-    }
-
-    @EventHandler
-    public void onInventoryClick(final InventoryDragEvent e){
-        if (e.getInventory().equals(inv)){
-            e.setCancelled(true);
-        }
     }
 
 }

@@ -2,7 +2,10 @@ package fr.vibe.buildbattlegeant.listeners;
 
 import fr.vibe.buildbattlegeant.BBGState;
 import fr.vibe.buildbattlegeant.Main;
+import fr.vibe.buildbattlegeant.Teams;
+import fr.vibe.buildbattlegeant.managers.PlayerManager;
 import fr.vibe.buildbattlegeant.tasks.AutoStart;
+
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -11,12 +14,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scoreboard.Team;
 
 import java.util.Collections;
 import java.util.Objects;
@@ -67,6 +72,8 @@ public class BBGPlayerListeners implements Listener {
         }
     }
 
+    Inventory inv = new TeamGuiListener().TeamGui();
+
     @EventHandler
     public void onInteract(PlayerInteractEvent event){
 
@@ -80,19 +87,56 @@ public class BBGPlayerListeners implements Listener {
 
             if (action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
 
-                Inventory inv = new TeamGuiListener().TeamGui();
-
-                // ouvrir l'inventaire
-
+                p.openInventory(inv);
             }
-
         }
-
     }
 
+    private PlayerManager playerManager;
+
+    @EventHandler
+    public void onClick(InventoryClickEvent e){
+
+        Inventory invCurr = e.getInventory();
+        ItemStack clickItem = e.getCurrentItem();
+        Player p = (Player) e.getWhoClicked();
+
+        if (clickItem == null) return;
+
+        if (invCurr.equals(inv)){
+
+            e.setCancelled(true);
+            p.closeInventory();
+
+            switch (clickItem.getType()){
+                case RED_WOOL:
+                    p.closeInventory();
+                    p.sendMessage("Vous êtes dans la team §cRouge");
+                    Teams.addTeam(Teams.red, p);
+                    break;
+                case BLUE_WOOL:
+                    p.closeInventory();
+                    p.sendMessage("Vous êtes dans la team §9Bleue");
+                    Teams.addTeam(Teams.blue, p);
+                    break;
+                case YELLOW_WOOL:
+                    p.closeInventory();
+                    p.sendMessage("Vous êtes dans la team §eJaune");
+                    Teams.addTeam(Teams.yellow, p);
+                    break;
+                case LIME_WOOL:
+                    p.closeInventory();
+                    p.sendMessage("Vous êtes dans la team §aVerte");
+                    Teams.addTeam(Teams.green, p);
+                    break;
+            }
+        }
+    }
     @EventHandler
     public void onQuit(PlayerQuitEvent event){
         Player p = event.getPlayer();
+
+        Bukkit.broadcastMessage("§c" + p.getName() + " §aa quitté la partie §8<§c" + main.getPlayers().size() + "§7/§2" + Bukkit.getMaxPlayers() + "§8>");
 
         if (main.isState(BBGState.STARTING) && main.getPlayers().size() < 2){
             main.setState(BBGState.WAITING);

@@ -13,8 +13,16 @@ public final class Main extends JavaPlugin {
     private List<Player> players = new ArrayList<>();
 
 
+    public static HashMap<String, List<Player>> teams = new HashMap<>();
+
+
     @Override
     public void onEnable() {
+
+        teams.put("rouge", new ArrayList<>());
+        teams.put("bleue", new ArrayList<>());
+        teams.put("jaune", new ArrayList<>());
+        teams.put("verte", new ArrayList<>());
 
 
         setState(BBGState.WAITING);
@@ -35,4 +43,5 @@ public final class Main extends JavaPlugin {
     public List<Player> getPlayers(){
         return players;
     }
+
 }
