@@ -2,8 +2,6 @@ package fr.vibe.buildbattlegeant.listeners;
 
 import fr.vibe.buildbattlegeant.BBGState;
 import fr.vibe.buildbattlegeant.Main;
-import fr.vibe.buildbattlegeant.Teams;
-import fr.vibe.buildbattlegeant.managers.PlayerManager;
 import fr.vibe.buildbattlegeant.tasks.AutoStart;
 
 import org.bukkit.Bukkit;
@@ -21,7 +19,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.scoreboard.Team;
 
 import java.util.Collections;
 import java.util.Objects;
@@ -39,6 +36,8 @@ public class BBGPlayerListeners implements Listener {
         Player p = event.getPlayer();
         Location spawn = new Location(Bukkit.getWorld("world"), 1, 85, 2, 0f, 0f);
 
+        // boussole de selection d'equipe
+
         ItemStack teams = new ItemStack(Material.COMPASS, 1);
         ItemMeta meta = teams.getItemMeta();
 
@@ -46,6 +45,8 @@ public class BBGPlayerListeners implements Listener {
         meta.setLore(Collections.singletonList("§eClic-droit pour choisir ta team"));
 
         teams.setItemMeta(meta);
+
+        // verification de l'etat de la partie
 
         if (main.isState(BBGState.WAITING)) {
             p.teleport(spawn);
@@ -58,6 +59,8 @@ public class BBGPlayerListeners implements Listener {
             p.sendMessage("§k| §cLe BuildBattle a déjà commencé ):§k |");
             return;
         }
+
+
 
         if (!main.getPlayers().contains(p)){
             main.getPlayers().add(p);

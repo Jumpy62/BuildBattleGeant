@@ -1,6 +1,7 @@
 package fr.vibe.buildbattlegeant;
 
 import fr.vibe.buildbattlegeant.listeners.BBGPlayerListeners;
+import fr.vibe.buildbattlegeant.managers.PlayerDataManager;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,6 +16,8 @@ public final class Main extends JavaPlugin {
 
     public static HashMap<String, List<Player>> teams = new HashMap<>();
 
+    private PlayerDataManager playerDataManager;
+
 
     @Override
     public void onEnable() {
@@ -26,6 +29,8 @@ public final class Main extends JavaPlugin {
 
 
         setState(BBGState.WAITING);
+
+        playerDataManager = new PlayerDataManager();
 
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvents(new BBGPlayerListeners(this), this);
@@ -42,6 +47,10 @@ public final class Main extends JavaPlugin {
 
     public List<Player> getPlayers(){
         return players;
+    }
+
+    public PlayerDataManager getPlayerDataManager(){
+        return playerDataManager;
     }
 
 }
